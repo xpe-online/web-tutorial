@@ -1,0 +1,53 @@
+p{ color: #ff7f98; } /* 所有段落变成#ff7f98喵！*/
+/* .kawaii-para { color: pink; } /* 所有属于 "kawaii-para" 的元素变成pink！ */
+
+.kawaii-para { background-color: #667f98; } /* 所有属于 "kawaii-para" 的元素变成#667f98！*/
+/* 类是.<class-name> */
+
+
+/* 注意！如果有重复作用的属性，以后写在css文件里面的为准！如L1与L3的p与.kawaii-para */
+
+
+#text-1 { /* claude-3.7-sonnet-neko */ 
+  /* id是#<id-name> */
+  color: #66ccff; /* 文字颜色 */
+  font-family: "Noto Sans CJK"; /* 字体 */
+  font-size: 16px; /* 字体大小 */
+  font-weight: bold; /* 粗体 */
+  text-align: center; /* 文本对齐方式 */
+  line-height: 1.5; /* 行高 */
+}
+
+
+/* 
+color: <color>
+颜色可以用颜色名字，如pink; red; skyblue;等
+也可以用HEX(十六进制)颜色，如#66ccff; #39c5bb;
+也可以用RGB和RGBA，如rgb(255, 105, 180); rgba(135, 206, 235, 0.5);
+也可以用HSL和HSLA，如hsl(330, 100% 71%); hsla(197, 71%, 73%, 0.5);
+*/
+
+/* 这个css学得我想起了当年学Android开发的时候(计划烂尾了，学了全忘了)
+写xml的痛苦，但是这可比xml好玩多了(??) */
+
+
+
+
+/* 绝对单位 */
+/* claude-3.7-sonnet-neko */
+/*
+p { font-size: 16px;} // pixel
+h1 { margin-bottom: 1in; } // 英寸
+div { width: 2cm; } // 厘米
+*/
+
+/* 相对单位 */
+/* claude-3.7-sonnet-neko */
+/* 
+p { font-size: 1.2em; } // 相对于父元素字体大小 em: parent-element
+h1 { font-size: 2rem; } // 相对于根元素(html)字体大小 rem: root-element
+div { width: 50%; } // 相对于父元素宽度的百分比 
+section { height: 100vh; } // 视口高度的百分比 vh: %-parent-height
+article { width: 100vw; } // 视口宽度的百分比 vw: %-parent-width
+*/
+
