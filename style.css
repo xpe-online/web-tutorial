@@ -1,22 +1,29 @@
+/* 选择器 */
 p{ color: #ff7f98; } /* 所有段落变成#ff7f98喵！*/
 /* .kawaii-para { color: pink; } /* 所有属于 "kawaii-para" 的元素变成pink！ */
 
-.kawaii-para { background-color: #667f98; } /* 所有属于 "kawaii-para" 的元素变成#667f98！*/
 /* 类是.<class-name> */
+.kawaii-para { background-color: #667f98; } /* 所有属于 "kawaii-para" 的元素变成#667f98！*/
 
-
-/* 注意！如果有重复作用的属性，以后写在css文件里面的为准！如L1与L3的p与.kawaii-para */
-
-
-#text-1 { /* claude-3.7-sonnet-neko */ 
-  /* id是#<id-name> */
+/* id是#<id-name> */
+#text-1 { /* claude-3.7-sonnet-neko */  
   color: #66ccff; /* 文字颜色 */
-  font-family: "Noto Sans CJK"; /* 字体 */
+  font-family: "Noto Sans CJK SC Medium"; /* 字体 */
   font-size: 16px; /* 字体大小 */
   font-weight: bold; /* 粗体 */
   text-align: center; /* 文本对齐方式 */
   line-height: 1.5; /* 行高 */
 }
+
+/* 组合选择器 */
+/*
+div p { color: purple; } // div 里面的所有 p 元素
+div > p { color: blue; } // div 的直接子元素 p
+h2 + p { color: green; } // h2 后面紧跟着的 p 元素 
+*/
+
+/* 注意！如果有重复作用的属性，以后写在css文件里面的为准！如L2与L3的p与.kawaii-para */
+
 
 
 /* 
@@ -51,3 +58,20 @@ section { height: 100vh; } // 视口高度的百分比 vh: %-parent-height
 article { width: 100vw; } // 视口宽度的百分比 vw: %-parent-width
 */
 
+
+/* 盒模型：每个元素都是一个"盒子"，有内容、内边距、边框和外边距喵 */
+#text-1 {
+  width: 960px; // 宽度
+  height: 540px; // 高度
+  padding: 20px; // 内边距
+  border: 2px solid pink; // 边框
+  margin: 10px; // 外边距
+}
+
+/* 背景 */
+#text-1 {
+  background-color: #ffe6e6; /* 背景颜色 */
+  background-image: url('cab.png'); /* 背景图片 */
+  background-size: cover; /* 背景图片大小 */
+  background-position: center; /* 背景图片位置 */
+}
