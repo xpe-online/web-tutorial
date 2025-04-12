@@ -1,5 +1,16 @@
 #submit {
-	border: 4px;
+	border: 8px;
+	border-radius: 16px;
+	color: #275615;
+	padding: 8px
+}
+
+#listbox {
+	background-color: #ff7f9899;
+}
+
+#list_title {
+	background-color: #39c5bbee;
 	border-radius: 16px;
 	padding: 4px
 }

@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>My Mood Log QWQ</title>
+		<script src="script.js" defer></script>
 	</head>
 	<body>
 		<link rel="stylesheet" href="style.css">
@@ -9,12 +10,12 @@
 		<input type="text" id="content">
 		<button id="submit">Submit!</button>
 		
-		<div style="background-color: #ff7f98;">
-			<h2 style="background-color: #ffffff;">My Mood Log List</h2>
-			<ul>
+		<h2 id="list_title">My Mood Log List</h2>
+		<div id="listbox">
+			<ul id="list">
 				<!--- 	<ul> label: unordered list 
 					<li> label: list item	---!>
-				<li>First subitem!</li>
+				<li>First submood!</li>
 			</ul>
 		</div>
 	</body>
