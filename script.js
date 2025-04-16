@@ -10,34 +10,44 @@ console.log("times:" + times);
 function init() {
   for (var i = 1; i <= times; i++) {
     let li = document.createElement("li");
-    let removeButton = document.createElement("button");
+    buttonList[i] = document.createElement("button");
     li.textContent = localStorage.getItem(i);
-    li.className = i;
+    if (!li.textContent) continue;
+    li.id = i;
     list.appendChild(li);
-    removeButton.textContent = "Remove";
-    removeButton.className = times;
-    list.appendChild(removeButton);
+    buttonList[i].textContent = "Remove";
+    buttonList[i].className = i;
+    li.appendChild(buttonList[i]);
+    buttonList[i].addEventListener("click", removeElement)
   }
 }
 
 function sub() {
-  let li = document.createElement("li");
-  let removeButton = document.createElement("button");
   times++;
+  let li = document.createElement("li");
+  buttonList[times] = document.createElement("button");
   li.textContent = content.value;
-  li.className = times;
+  li.id = times;
   list.appendChild(li);
-  removeButton.textContent = "Remove";
-  removeButton.className = times;
-  list.appendChild(removeButton);
-  content.value = " ";
   localStorage.setItem("times", times);
-  localStorage.setItem(times, li.textContent)
+  localStorage.setItem(times, li.textContent);
+  buttonList[times].textContent = "Remove";
+  buttonList[times].className = times;
+  li.appendChild(buttonList[times]);
+  buttonList[times].addEventListener("click", removeElement);
+  content.value = " "
   // console.log(localStorage.getItem("times"))
 }
 
-function remove() {
-  console.log("test")
+function clear() {
+  localStorage.clear()
+}
+
+function removeElement() {
+  let removeElements = document.getElementById(this.className);
+  // console.log(this);
+  localStorage.removeItem(this.className);
+  removeElements.remove()
 }
 
 submit = document.getElementById("submit");
@@ -45,9 +55,10 @@ clearButton = document.getElementById("clear");
 testButton = document.getElementById("testButton");
 content = document.getElementById("content");
 list = document.getElementById("list");
+var buttonList = [];
 
 init();
 
 submit.addEventListener("click", sub);
-// clearButton.addEventListener("click", localStorage.clear());
-testButton.addEventListener("click", remove);
+clearButton.addEventListener("click", clear);
+testButton.addEventListener("click", removeElement);
