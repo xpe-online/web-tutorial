@@ -1,38 +1,36 @@
-console.log("Hello JavaScript! script.js has been loaded!");
-if (!localStorage.getItem("times")) {
+console.log("Hello JavaScript! script.js is loading!");
+if (!localStorage.getItem("times")) { // 初始化localStorage 如果返回NULL Undefined NaN就初始化为0
   localStorage.setItem("times", "0")
 }
 
-var times = parseInt(localStorage.getItem("times"));
-console.log("localTimes:" + localStorage.getItem("times"));
+var times = parseInt(localStorage.getItem("times")); // list item条目数存入localStorage
+console.log("localTimes:" + localStorage.getItem("times")); // debug 信息
 console.log("times:" + times);
 
-function init() {
+function init() { // 这是初始化模块 用for循环在每次刷新网页后插入localStorage里的数据
   for (var i = 1; i <= times; i++) {
     let li = document.createElement("li");
-    buttonList[i] = document.createElement("button");
+    buttonList[i] = document.createElement("button"); // 将删除按钮存储于数组中
     li.textContent = localStorage.getItem(i);
-    if (!li.textContent) continue;
-    li.id = i;
+    if (!li.textContent) continue; // 考虑到可能有删除了中间的元素，从而导致localStorage返回NULL的情况，故跳过
     list.appendChild(li);
     buttonList[i].textContent = "Remove";
-    buttonList[i].className = i;
+    buttonList[i].id = i;
     li.appendChild(buttonList[i]);
-    buttonList[i].addEventListener("click", removeElement)
+    buttonList[i].addEventListener("click", removeElement) // 为数组里的按钮添加删除事件
   }
 }
 
 function sub() {
-  times++;
+  times++; // Counter
   let li = document.createElement("li");
   buttonList[times] = document.createElement("button");
   li.textContent = content.value;
-  li.id = times;
   list.appendChild(li);
-  localStorage.setItem("times", times);
-  localStorage.setItem(times, li.textContent);
+  localStorage.setItem("times", times); // 将当前的list item条目数存入localStorage
+  localStorage.setItem(times, li.textContent); // 将当前的list item内容存入localStorage
   buttonList[times].textContent = "Remove";
-  buttonList[times].className = times;
+  buttonList[times].id = times;
   li.appendChild(buttonList[times]);
   buttonList[times].addEventListener("click", removeElement);
   content.value = " "
@@ -41,22 +39,20 @@ function sub() {
 
 function clear() {
   for (var i = 1; i <= times; i++) {
-    let removeElements = document.getElementById(i);
-    if (removeElements) removeElements.remove()
+    if (localStorage.getItem(i)) buttonList[i].parentElement.remove()
+    // 如果localStorage不返回NULL就说明元素存在，并进行删除
   }
   localStorage.clear()
 }
 
 function removeElement() {
-  let removeElements = document.getElementById(this.className);
+  buttonList[this.id].parentElement.remove();
   // console.log(this);
-  localStorage.removeItem(this.className);
-  removeElements.remove()
+  localStorage.removeItem(this.id);
 }
 
 submit = document.getElementById("submit");
 clearButton = document.getElementById("clear");
-testButton = document.getElementById("testButton");
 content = document.getElementById("content");
 list = document.getElementById("list");
 var buttonList = [];
@@ -65,4 +61,5 @@ init();
 
 submit.addEventListener("click", sub);
 clearButton.addEventListener("click", clear);
-testButton.addEventListener("click", removeElement);
+
+console.log("Hello JavaScript! script.js has been loaded!");
