@@ -40,6 +40,10 @@ function sub() {
 }
 
 function clear() {
+  for (var i = 1; i <= times; i++) {
+    let removeElements = document.getElementById(i);
+    if (removeElements) removeElements.remove()
+  }
   localStorage.clear()
 }
 
