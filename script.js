@@ -52,10 +52,10 @@ function removeElement() {
   localStorage.removeItem(this.id);
 }
 
-submit = document.getElementById("submit");
-clearButton = document.getElementById("clear");
-content = document.getElementById("content");
-list = document.getElementById("list");
+const submit = document.getElementById("submit");
+const clearButton = document.getElementById("clear");
+const content = document.getElementById("content");
+const list = document.getElementById("list");
 var buttonList = [];
 
 init();
