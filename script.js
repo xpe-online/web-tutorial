@@ -38,12 +38,8 @@ function sub() {
 }
 
 function clear() {
-  for (var i = 1; i <= times; i++) {
-    if (localStorage.getItem(i)) buttonList[i].parentElement.remove()
-    // 如果localStorage不返回NULL就说明元素存在，并进行删除
-  }
-  localStorage.clear()
-  document.getElementById("clearDiv").remove();
+  localStorage.clear();
+  location.reload()
 }
 
 function removeElement() {
